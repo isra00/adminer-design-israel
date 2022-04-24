@@ -689,6 +689,11 @@ table {
 	table tbody th a:visited {
 		color: var(--color-accent-fg);
 	}
+		table tbody th a:hover,
+		table tbody th a:link:hover,
+		table tbody th a:visited:hover {
+			color: var(--color-accent-fg);
+		}
 	table thead th {
 		font-weight: normal;
 	}
