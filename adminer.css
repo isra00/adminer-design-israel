@@ -1,6 +1,6 @@
 /**
- * Adminer dark "ghdark" theme by Israel Viana
- * Inspired in GitHub's dark theme
+ * Adminer dark theme by Israel Viana
+ * Inspired by GitHub's dark theme
  */
 
 /*
@@ -605,6 +605,7 @@ code.jush-sql {
 	border: 1px solid var(--color-border-subtle);
 }
 
+/* Tooltips */
 #help,
 .js .column {
 	background: var(--color-border-muted);
@@ -613,7 +614,7 @@ code.jush-sql {
 .js .column {
 	font-weight: bold;
 	border-radius: 1em;
-	padding: .2em .2em .2em .25em;
+	padding: .1em .2em .1em .25em;
 }
 	.js .column a {
 		display: inline-block;
@@ -624,7 +625,7 @@ code.jush-sql {
 	.js .column a:hover {
 		text-decoration: none;
 		background: var(--color-menu-bg-active);
-		color: white;
+		color: var(--color-accent-fg);
 	}
 
 .icon:hover {
@@ -666,6 +667,7 @@ table {
 		background: var(--color-canvas-subtle);
 		padding: .3em .5em;
 	}
+	/* Links in table heading */
 	table thead th a,
 	table thead th a:link,
 	table thead th a:visited,
@@ -674,6 +676,14 @@ table {
 	table thead td a:visited {
 		color: var(--color-fg-default);
 	}
+		table thead th a:hover,
+		table thead th a:link:hover,
+		table thead th a:visited:hover,
+		table thead td a:hover,
+		table thead td a:link:hover,
+		table thead td a:visited:hover {
+			color: var(--color-accent-fg);
+		}
 	table tbody th a,
 	table tbody th a:link,
 	table tbody th a:visited {
