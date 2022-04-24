@@ -571,11 +571,18 @@ h2 {
 		border-bottom-color: var(--color-primer-border-active);
 	}
 
-.message {
-	color: var(--color-fg-default);
-	background: linear-gradient(var(--color-accent-subtle), var(--color-accent-subtle));
-	border-color: var(--color-accent-muted);
+/* Notifications */
+.message, .error {
 	border-radius: .5em;
+	color: var(--color-fg-default);
+}
+.error {
+	background: var(--color-danger-muted);
+	border: 1px solid var(--color-danger-emphasis);
+}
+.message {
+	background: var(--color-open-subtle);
+	border: 1px solid var(--color-open-emphasis);
 }
 
 /*
@@ -596,6 +603,7 @@ code.jush-sql {
 	padding: .4em .7em;
 	line-height: 1.5em;
 	border-radius: .5em;
+	border: 1px solid var(--color-border-subtle);
 }
 
 #help,
