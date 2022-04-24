@@ -693,10 +693,23 @@ table {
 		font-weight: normal;
 	}
 
-table tbody tr:hover td,
-table tbody tr:hover th {
-	background: var(--color-canvas-subtle);
-}
+	table tbody tr:hover td,
+	table tbody tr:hover th {
+		background: var(--color-canvas-subtle);
+	}
+
+	.js .checkable .checked td,
+	.js .checkable .checked th {
+		background: var(--color-accent-subtle);
+	}
+		.js .checkable .checked td a,
+		.js .checkable .checked td a:link,
+		.js .checkable .checked td a:visited {
+			color: var(--color-scale-blue-3);
+		}
+		.js .checkable .checked td > i {
+			color: var(--color-fg-muted);
+		}
 
 /* Table contents */
 
