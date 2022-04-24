@@ -465,18 +465,17 @@ body {
  * -------------------------------- BASIC TAGS ---------------------------------
  */
 
-a {
-	color: var(--color-accent-fg);
-}
-
+a,
+a:link,
 a:visited {
 	color: var(--color-accent-fg);
 }
-
-a:link:hover, a:visited:hover {
-	text-decoration: underline;
-	color: var(--color-accent-fg);
-}
+	a:hover,
+	a:link:hover,
+	a:visited:hover {
+		text-decoration: underline;
+		color: var(--color-accent-fg);
+	}
 
 h2 {
 	background: var(--color-header-bg);
@@ -511,7 +510,7 @@ h2 {
 		background: var(--color-header-bg);
 		color: var(--color-fg-default);
 		border: none;
-		padding: .1em 1em;
+		padding: .1em 1em .2em;
 		font-size: 140%;
 		border-bottom-right-radius: .7rem;
 	}
@@ -628,6 +627,10 @@ code.jush-sql {
 		color: white;
 	}
 
+.icon:hover {
+  background-color: var(--color-accent-fg);
+}
+
 /*
  * ----------------------------------- TABLES ----------------------------------
  */
@@ -638,31 +641,54 @@ table {
 	border-top: 0;
 	border-color: #30363d;
 }
-	td, th {
+	table a,
+	table a:link,
+	table a:visited {
+		color: var(--color-scale-purple-6);
+	}
+	table td, table th {
 		border-color: #30363d;
 		padding: .3em .5em;
 		background: transparent;
 	}
-		.odd td {
+		table .odd td {
 			background: transparent;
 		}
 
-th, thead th, thead td {
-	background: var(--color-canvas-subtle);
-	padding: .3em .5em;
-}
-	thead th a, thead td a {
+	table th,
+	table thead th,
+	table thead td {
+		background: var(--color-canvas-subtle);
+		padding: .3em .5em;
+	}
+	table thead th a,
+	table thead th a:link,
+	table thead th a:visited,
+	table thead td a,
+	table thead td a:link,
+	table thead td a:visited {
 		color: var(--color-fg-default);
 	}
-	thead th {
+	table tbody th a,
+	table tbody th a:link,
+	table tbody th a:visited {
+		color: var(--color-accent-fg);
+	}
+	table thead th {
 		font-weight: normal;
 	}
 
-tbody tr:hover td, tbody tr:hover th {
+table tbody tr:hover td,
+table tbody tr:hover th {
 	background: var(--color-canvas-subtle);
 }
 
-/* Inside tables */
+/* Table contents */
+
+a:has(> sup):hover { /* headings in tables list */
+	text-decoration: none;
+}
+
 
 .js .checkable .checked td, .js .checkable .checked th {
 	background: rgba(52, 152, 219, .3);
@@ -671,6 +697,11 @@ tbody tr:hover td, tbody tr:hover th {
 code {
 	background: var(--color-action-list-item-default-selected-bg);
 	font-size: 1.1em;
+}
+
+table a.edit {
+	text-transform: uppercase;
+	color: var(--color-accent-fg)
 }
 
 /* Table paging and footer */
@@ -729,16 +760,37 @@ select, button, input[type=submit] {
 }
 
 /* SQL editor */
-
-.jush {
-	color: var(--color-fg-default);
-}
 .sqlarea {
 	border: 1px solid var(--color-border-default)!important;
 }
-.jush a {
-	color: var(--color-accent-fg);
-	font-weight: normal;
+.jush {
+	color: var(--color-fg-default);
+}
+	.jush-bac, .jush-php_bac, .jush-bra, .jush-mssql_bra, .jush-sqlite_quo {
+		color: var(--color-scale-pink-6);
+	}
+	.jush a {
+		color: var(--color-accent-fg);
+		font-weight: normal;
+	}
+
+.time + a {
+	text-transform: uppercase;
+	font-size: 75%;
+}
+
+/* Outstanding buttons */
+
+input[value="Execute"],
+input[value="Save"],
+fieldset input[value="Select"] {
+	color: var(--color-btn-primary-text);
+	background-color: var(--color-btn-primary-bg);
+	border-color: var(--color-btn-primary-border);
+}
+
+input[value="Execute"] {
+	font-size: 1.1em;
 }
 
 /*
