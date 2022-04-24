@@ -90,7 +90,6 @@
 	--color-checks-input-placeholder-text: #6e7681;
 	--color-checks-input-focus-text: #c9d1d9;
 	--color-checks-input-bg: #161b22;
-	--color-checks-input-shadow: 0 0 0 1px (obj) => get_1.default(obj, path);
 	--color-checks-donut-error: #f85149;
 	--color-checks-donut-pending: #d29922;
 	--color-checks-donut-success: #2ea043;
@@ -456,7 +455,7 @@
 
 body {
 	background: var(--color-canvas-default);
-	color: #8b949e;
+	color: var(--color-fg-default);
 	font-family: var(--default-font);
 	font-size: 1.05em;
 }
@@ -482,6 +481,7 @@ a:link:hover, a:visited:hover {
 h2 {
 	background: var(--color-header-bg);
 	color: var(--color-fg-default);
+	border-radius: .7rem;
 }
 
 /*
@@ -492,9 +492,11 @@ h2 {
 
 #breadcrumb {
 	background: var(--color-header-bg);
+	border-bottom-left-radius: .7rem;
+	border-bottom-right-radius: .7rem;
 }
 	#breadcrumb a {
-		color: var(--color-header-text);
+		color: var(--color-fg-muted);
 	}
 #logout {
 	font-weight: bold;
@@ -511,6 +513,7 @@ h2 {
 		border: none;
 		padding: .1em 1em;
 		font-size: 140%;
+		border-bottom-right-radius: .7rem;
 	}
 	#menu select[name="db"] {
 		font-size: 1.1em;
@@ -524,44 +527,56 @@ h2 {
 	#logins a, #tables a, #tables span {
 		background: transparent;
 		font-weight: normal;
+		color: var(--color-fg-muted);
 	}
-	a.select {
+	#tables a.select {
 		color: var(--color-fg-subtle);
-		/*float: right;*/
+	}
+	#tables a.active {
+		color: var(--color-accent-fg);
 	}
 	#menu .links a {
 		display: block;
-		padding: .05em .2em;
+		padding: .05em .2em .1em .2em;
+		margin-right: 0;
 		line-height: 140%;
 		border-radius: .3em;
 	}
 		#menu .links a:hover {
 			border-bottom-color: transparent;
 			background: var(--color-header-bg);
+			text-decoration: none;
 		}
 		#menu .links a.active {
 			border-bottom-color: transparent;
 		}
 
 /* Table sections nav */
-.links {
+#ajaxstatus + .links {
 	border-bottom: 1px solid var(--color-border-muted);
 }
-	.links a {
+	#ajaxstatus + .links a {
 		padding: .5em .6em;
 		display: inline-block;
 		border-bottom: 2px solid transparent;
 		text-decoration: none;
 		color: var(--color-fg-default);
 	}
-	.links a:hover {
+	#ajaxstatus + .links a:hover {
 		border-bottom-color: var(--color-neutral-muted);
 		text-decoration: none;
 		color: var(--color-fg-default);
 	}
-	.links a.active {
+	#ajaxstatus + .links a.active {
 		border-bottom-color: var(--color-primer-border-active);
 	}
+
+.message {
+	color: var(--color-fg-default);
+	background: linear-gradient(var(--color-accent-subtle), var(--color-accent-subtle));
+	border-color: var(--color-accent-muted);
+	border-radius: .5em;
+}
 
 /*
  * ------------------------------ COMMON ELEMENTS ------------------------------
@@ -580,12 +595,30 @@ code.jush-sql {
 	display: block;
 	padding: .4em .7em;
 	line-height: 1.5em;
+	border-radius: .5em;
 }
 
-#help {
+#help,
+.js .column {
 	background: var(--color-border-muted);
 	color: var(--color-fg-default);
 }
+.js .column {
+	font-weight: bold;
+	border-radius: 1em;
+	padding: .2em .2em .2em .25em;
+}
+	.js .column a {
+		display: inline-block;
+		text-align: center;
+		border-radius: 1em;
+		padding: .1em .4em .2em .1em;
+	}
+	.js .column a:hover {
+		text-decoration: none;
+		background: var(--color-menu-bg-active);
+		color: white;
+	}
 
 /*
  * ----------------------------------- TABLES ----------------------------------
@@ -595,12 +628,9 @@ code.jush-sql {
 
 table {
 	border-top: 0;
-	border-left: 1px solid silver;
 	border-color: #30363d;
 }
 	td, th {
-		border-right: 1px solid silver;
-		border-bottom: 1px solid silver;
 		border-color: #30363d;
 		padding: .3em .5em;
 		background: transparent;
@@ -661,8 +691,12 @@ fieldset {
 	border: 1px solid var(--color-border-default);
 }
 
-input {
+input, select, option {
 	font-family: var(--default-font);
+}
+
+optgroup {
+	font-style: normal;
 }
 
 /* Fillable (text-like) elements */
