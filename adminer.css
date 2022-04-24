@@ -758,9 +758,13 @@ input:not([type]), input[type='text'], input[type='password'], input[type='numbe
 textarea {
 	background: var(--color-canvas-inset);
 	border: 1px solid var(--color-border-default);
-	border-radius: .3em;
+	border-radius: .4em;
 	color: var(--color-fg-default);
 	padding: .2em .3em;
+}
+
+fieldset {
+	border-radius: .3em;
 }
 
 /* Clickable (button-like) elements */
@@ -769,7 +773,7 @@ select, button, input[type=submit] {
 	padding: .35em .6em;
 	background: var(--color-btn-bg);
 	border: 1px solid var(--color-btn-border);
-	border-radius: .3em;
+	border-radius: .5em;
 	color: var(--color-fg-default);
 }
 
@@ -805,6 +809,7 @@ fieldset input[value="Select"] {
 
 input[value="Execute"] {
 	font-size: 1.1em;
+	border-radius: .6em;
 }
 
 /*
