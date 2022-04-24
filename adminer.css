@@ -646,6 +646,11 @@ table {
 	table a:visited {
 		color: var(--color-scale-purple-6);
 	}
+		table a:hover,
+		table a:link:hover,
+		table a:visited:hover {
+			color: var(--color-scale-purple-6);
+		}
 	table td, table th {
 		border-color: #30363d;
 		padding: .3em .5em;
@@ -685,10 +690,9 @@ table tbody tr:hover th {
 
 /* Table contents */
 
-a:has(> sup):hover { /* headings in tables list */
-	text-decoration: none;
+table td > i {
+	color: var(--color-fg-subtle);
 }
-
 
 .js .checkable .checked td, .js .checkable .checked th {
 	background: rgba(52, 152, 219, .3);
