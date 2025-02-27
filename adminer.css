@@ -483,6 +483,12 @@ h2 {
 	border-radius: .7rem;
 }
 
+code {
+	background: var(--color-action-list-item-default-selected-bg);
+	font-family: 'Consolas', 'Lucida Consola', monospace, monospace;
+	/*font-size: 1.1em;*/
+}
+
 /*
  * ------------------------------ COMMON SECTIONS ------------------------------
  */
@@ -514,12 +520,18 @@ h2 {
 		font-size: 140%;
 		border-bottom-right-radius: .7rem;
 	}
+
+	/* DB selection */
+	#dbs {
+		line-height: 200%;
+	}
 	#menu select[name="db"] {
 		font-size: 1.1em;
 	}
 		#menu select[name="db"] option {
 			font-size: 1rem;
 		}
+
 	#menu p, #logins, #tables {
 		border-bottom: 1px solid var(--color-border-muted);
 	}
@@ -533,6 +545,7 @@ h2 {
 	}
 	#tables a.active {
 		color: var(--color-accent-fg);
+		font-weight: bold;
 	}
 	#menu .links a {
 		display: block;
@@ -661,6 +674,10 @@ table {
 			background: transparent;
 		}
 
+		.odds tbody tr:nth-child(2n) td {
+			background: #0a0a0a;
+		}
+
 	table th,
 	table thead th,
 	table thead td {
@@ -726,9 +743,9 @@ table td > i {
 	background: rgba(52, 152, 219, .3);
 }
 
-code {
-	background: var(--color-action-list-item-default-selected-bg);
-	font-size: 1.1em;
+table code {
+	padding: .1em .2em;
+	border-radius: .2em;
 }
 
 table a.edit {
@@ -803,12 +820,15 @@ select, button, input[type=submit] {
 	color: var(--color-fg-default);
 }
 	.jush-bac, .jush-php_bac, .jush-bra, .jush-mssql_bra, .jush-sqlite_quo {
-		color: var(--color-scale-pink-6);
+		color: var(--color-scale-yellow-2);
 	}
 	.jush a {
-		color: var(--color-accent-fg);
+		color: var(--color-scale-pink-4);
 		font-weight: normal;
 	}
+pre.jush {
+	background: black;
+}
 
 .time + a {
 	text-transform: uppercase;
@@ -817,8 +837,10 @@ select, button, input[type=submit] {
 
 /* Outstanding buttons */
 
+/** @fixme This won't work if lang != EN */
 input[value="Execute"],
 input[value="Save"],
+input[value="Login"],
 fieldset input[value="Select"] {
 	color: var(--color-btn-primary-text);
 	background-color: var(--color-btn-primary-bg);
@@ -827,7 +849,7 @@ fieldset input[value="Select"] {
 
 input[value="Execute"] {
 	font-size: 1.1em;
-	border-radius: .6em;
+	border-radius: .5em;
 }
 
 /*
