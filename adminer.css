@@ -674,6 +674,7 @@ table {
 			background: transparent;
 		}
 
+		.odds tbody tr:nth-child(2n),
 		.odds tbody tr:nth-child(2n) td {
 			background: #0a0a0a;
 		}
