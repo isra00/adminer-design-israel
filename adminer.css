@@ -503,8 +503,9 @@ code {
 	#breadcrumb a {
 		color: var(--color-fg-muted);
 	}
-#logout {
+#logout, .logout {
 	font-weight: bold;
+	background-color: transparent;
 }
 
 /* Sidebar */
